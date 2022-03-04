@@ -1,0 +1,80 @@
+*{
+    box-sizing:border-box;
+    margin: 0;
+}
+
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board{
+    height: 600px;
+    width: 300px;
+    background-image: url("https://i.imgur.com/3TJilee.jpg");
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#store1 {
+    height: 15%;
+    width: 100%
+}
+
+#pits {
+    height: 70%;
+    width: 100%;
+    display: flex;
+}
+
+#pits div {
+    width: 50%;
+    height: 100%;
+}
+
+#store2 {
+    height: 15%;
+    width: 100%
+}
+
+#p1Side{
+    display: flex;
+    flex-direction: column;
+}
+
+#p2Side{
+    display: flex;
+    flex-direction: column;
+}
+
+#p2Side div{
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    height: 1fr;
+    width: 100%;
+    border-radius: 20%;
+}
+
+#p1Side div{
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    height: 1fr;
+    width: 100%;
+    border-radius: 20%;
+}
+
+#store1 div{
+    height: 100%;
+    width: 100%;
+    background: blue;
+    border-radius: 20%;
+}
+
+#store2 div{
+    height: 100%;
+    width: 100%;
+    background: blue;
+    border-radius: 20%;
+}
