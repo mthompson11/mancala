@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("https://i.imgur.com/na70TXP.jpg");
+}
+
+.message {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message p{
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.play {
+    height: 1fr;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board{
+    height: 700px;
+    width: 300px;
+    background-image: url("https://i.imgur.com/3TJilee.jpg");
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#store1 {
+    height: 15%;
+    width: 100%
+}
+
+#pits {
+    height: 70%;
+    width: 100%;
+    display: flex;
+}
+
+#pits div {
+    width: 50%;
+    height: 100%;
+}
+
+#store2 {
+    height: 15%;
+    width: 100%
+}
+
+#p1Side{
+    display: flex;
+    flex-direction: column;
+}
+
+#p2Side{
+    display: flex;
+    flex-direction: column;
+}
+
+#p2Side div{
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    height: 1fr;
+    width: 100%;
+    border-radius: 20%;
+    padding: 5px;
+    background-clip: content-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+#p1Side div{
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    height: 1fr;
+    width: 100%;
+    border-radius: 20%;
+    padding: 5px;
+    background-clip: content-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+#store1 div{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    background-clip: content-box;
+    padding: 10px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+#store2 div{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    background-clip: content-box;
+    padding: 10px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+@media only screen and (min-width:768px){
+    body {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 200px 1fr;
+        background-image: url("https://i.imgur.com/na70TXP.jpg");
+    }
+
+    .message {
+        height: 100%;
+    }
+
+    .board{
+        height: 400px;
+        width: 900px;
+        background-image: url("https://i.imgur.com/3TJilee.jpg");
+        border-radius: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #store1 {
+        height: 100%;
+        width: 15%
+    }
+
+    #store2 {
+        height: 100%;
+        width: 15%
+    }
+
+    #p1Side{
+        flex-direction: row;
+    }
+    
+    #p2Side{
+        flex-direction: row;
+    }
+
+    #pits {
+        height: 100%;
+        width: 70%;
+        flex-direction: column;
+    }
+
+    #p2Side div{
+        height: 100%;
+        width: 1fr;
+    }
+    
+    #p1Side div{
+        height: 100%;
+        width: 1fr;
+    }
+
+    #pits div {
+        width: 100%;
+        height: 50%;
+    }
+
+    #p1Side div{
+        height: 100%;
+        width: 1fr;
+    }
+
+    #p2Side div{
+        height: 100%;
+        width: 1fr;
+    }
+    .play {
+        height: 100%;
+    }
+}
