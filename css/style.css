@@ -1,6 +1,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Cabin Sketch', cursive;
 }
 
 
@@ -26,14 +27,14 @@ body {
 }
 
 .play {
-    height: 1fr;
+    flex-grow: 1;
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
 .board{
-    height: 700px;
+    height: 600px;
     width: 300px;
     background-image: url("https://i.imgur.com/3TJilee.jpg");
     border-radius: 5%;
@@ -134,6 +135,20 @@ body {
     font-size: 35px;
     font-weight: bold;
     font-family: 'Cabin Sketch', cursive;
+}
+
+footer{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    height: 50px;
+    width: 150px;
+    font-size: 30px;
 }
 
 @media only screen and (min-width:768px){
