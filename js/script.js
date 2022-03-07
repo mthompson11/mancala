@@ -59,7 +59,7 @@ $('#pits').click(handleClick);
     /*----- functions -----*/
 
 function init(){
-    board = [4,4,4,4,4,4,0,0,0,0,0,0,1,0];
+    board = [4,4,4,4,4,4,0,4,4,4,4,4,4,0];
     turn = 1;
     winner = false;
     score = {'1' : 0, '-1' : 0};
@@ -70,11 +70,13 @@ function render(){
     board.forEach(function(pos,idx){
         $(`#pos${idx}`).html(pos);
     })
-    if(winner){
+    if(winner !== false){
         if(winner === 1){
             $('.message p').html(`Game Over! <br/> Player 1 Wins!`)
-        }else{
+        }else if(winner === -1){
             $('.message p').html(`Game Over! <br/>Player 2 Wins!`)
+        }else{
+            $('.message p').html(`Game Over! <br/>Tie Game!`)
         }
     }else{
         if(turn === 1){
@@ -86,64 +88,72 @@ function render(){
 }
 
 function handleClick(evt){
-    if(($(evt.target).parent().attr('id') === 'p1Side' && turn === 1) || ($(evt.target).parent().attr('id') === 'p2Side' && turn === -1)){
+    if((($(evt.target).parent().attr('id') === 'p1Side' && turn === 1) || ($(evt.target).parent().attr('id') === 'p2Side' && turn === -1)) && winner === false){
         let pos = Number($(evt.target).attr('id').split('pos')[1]);
         let pieces = Number($(evt.target).html());
-        board[pos] = 0;
         const laps = Math.floor(pieces / (board.length - 1))
-        const skip = turn === 1 ? 13 : 6;
+        const skip = (turn === 1) ? 13 : 6;
         let lastIdx;
-        console.log(laps)
+        board[pos] = 0;
+
+        //Take of full laps
+
         if (laps > 0){
             board.forEach(function(pos,idx){
                 if(idx !== skip){
-                    console.log(idx);
                     board[idx] = pos + laps;
-                    pieces --;
+                    pieces -= laps;
                     if(pieces === 0){
                         lastIdx = idx;
                     }
                 }
             })
         }
-        console.log(pos + 1 )
-        let forward = board.slice(pos + 1, board.length);
-        let behind = board.slice(0,pos + 1);
-        console.log(forward);
-        console.log(behind);
-        if(pieces > 0 && forward.length !== 0){
-            forward.forEach(function(pos,idx){
-                if(idx !== 6 && pieces > 0){
-                    forward[idx] = pos + 1;
-                    pieces--;
+        console.log(pieces);
+        //Take care of the remainder
+        if(pieces > 0){
+            console.log(board)
+            board.forEach(function(bucket,idx){
+                if(idx > pos && idx !== skip && pieces > 0){
+                    board[idx] = bucket + 1;
+                    pieces --;
                     if(pieces === 0){
-                        lastIdx = idx + behind.length;
+                        lastIdx = idx
                     }
                 }
             })
         }
-        if(pieces > 0 && behind.length !==0){
-            behind.forEach(function(pos,idx){
-                if(idx != 6 && pieces > 0){
-                    behind[idx] = pos + 1;
-                    pieces--;
+
+        console.log(lastIdx);
+        console.log(pieces);
+        if(pieces > 0){
+            board.forEach(function(bucket,idx){
+                if(idx !== skip && pieces > 0){
+                    board[idx] = bucket + 1;
+                    pieces --
+                    if(pieces === 0){
+                        lastIdx = idx
+                    }
                 }
             })
         }
-        board = behind.concat(forward);
+        
+        //Capture logic
         if(lastIdx >=0 && lastIdx <=5 && board[lastIdx] === 1 && turn ===1){
             let capturePosition = board.length - lastIdx - 2;
             board[6] += board[capturePosition] + 1
             board[capturePosition] = 0;
             board[lastIdx] = 0
         }
-        if(lastIdx >=7 && lastIdx <=13 && board[lastIdx] === 1 && turn === -1){
+        if(lastIdx >=7 && lastIdx <=12 && board[lastIdx] === 1 && turn === -1){
             let capturePosition = board.length - lastIdx - 2;
             board[13] += board[capturePosition] + 1
             board[capturePosition] = 0;
             board[lastIdx] = 0;
         }
-        if(turn === 1 && lastIdx !== 6 || turn === 2 && lastIdx !== 13){
+        //Go again logic
+
+        if((turn === 1 && lastIdx !== 6) || (turn === -1 && lastIdx !== 13)){
             turn *= -1;
         }
         updateEndGame();
@@ -154,10 +164,14 @@ function handleClick(evt){
 function updateEndGame(){
     const p1 = board.slice(0,6);
     const p2 = board.slice(7,13);
-    if(p1.every(pos => pos === 0)){
-        winner = 1;
-    }else if(p2.every(pos => pos === 0)){
-        winner = -1;
+    if(p1.every(pos => pos === 0) || p2.every(pos => pos === 0){
+        if(board[6] > board[13]){
+            winner = 1;
+        }else if(board[13] > board[6]){
+            winner = -1;
+        }else{
+            winner = 0;
+        }
     }
 }
 init();
