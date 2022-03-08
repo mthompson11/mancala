@@ -1,9 +1,8 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Cabin Sketch', cursive;
 }
-
 
 body {
     height: 100vh;
@@ -12,7 +11,7 @@ body {
     background-image: url("https://i.imgur.com/na70TXP.jpg");
 }
 
-.message {
+#message {
     height: 100px;
     width: 100%;
     display: flex;
@@ -20,20 +19,20 @@ body {
     align-items: center;
 }
 
-.message p{
-    font-size: 45px;
+#message p{
+    font-size: 50px;
     font-weight: bold;
-    font-family: 'Cabin Sketch', cursive;
+    text-align: center;
 }
 
-.play {
+#play {
     flex-grow: 1;
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
-.board{
+#board{
     height: 600px;
     width: 300px;
     background-image: url("https://i.imgur.com/3TJilee.jpg");
@@ -42,9 +41,24 @@ body {
     flex-direction: column;
 }
 
-#store1 {
+.mancala {
     height: 15%;
     width: 100%
+}
+
+.mancala div {
+    height: 100%;
+    width: 100%;
+    background-image: url("https://i.imgur.com/zMKZarM.jpg");
+    background-clip: content-box;
+    padding: 10px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 #pits {
@@ -53,27 +67,14 @@ body {
     display: flex;
 }
 
-#pits div {
+.side{
     width: 50%;
     height: 100%;
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
 }
 
-#store2 {
-    height: 15%;
-    width: 100%
-}
-
-#p1Side{
-    display: flex;
-    flex-direction: column;
-}
-
-#p2Side{
-    display: flex;
-    flex-direction: column;
-}
-
-#p2Side div{
+.side div{
     background-image: url("https://i.imgur.com/zMKZarM.jpg");
     height: 1fr;
     width: 100%;
@@ -86,55 +87,6 @@ body {
     color: white;
     font-size: 35px;
     font-weight: bold;
-    font-family: 'Cabin Sketch', cursive;
-}
-
-#p1Side div{
-    background-image: url("https://i.imgur.com/zMKZarM.jpg");
-    height: 1fr;
-    width: 100%;
-    border-radius: 20%;
-    padding: 5px;
-    background-clip: content-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 35px;
-    font-weight: bold;
-    font-family: 'Cabin Sketch', cursive;
-}
-
-#store1 div{
-    height: 100%;
-    width: 100%;
-    background-image: url("https://i.imgur.com/zMKZarM.jpg");
-    background-clip: content-box;
-    padding: 10px;
-    border-radius: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 35px;
-    font-weight: bold;
-    font-family: 'Cabin Sketch', cursive;
-}
-
-#store2 div{
-    height: 100%;
-    width: 100%;
-    background-image: url("https://i.imgur.com/zMKZarM.jpg");
-    background-clip: content-box;
-    padding: 10px;
-    border-radius: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 35px;
-    font-weight: bold;
-    font-family: 'Cabin Sketch', cursive;
 }
 
 footer{
@@ -142,14 +94,19 @@ footer{
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
-button{
-    height: 50px;
+button {
     width: 150px;
+    height: 80px;
     font-size: 30px;
-}
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  }
 
 @media only screen and (min-width:768px){
     body {
@@ -159,11 +116,11 @@ button{
         background-image: url("https://i.imgur.com/na70TXP.jpg");
     }
 
-    .message {
+    #message {
         height: 100%;
     }
 
-    .board{
+    #board{
         height: 400px;
         width: 900px;
         background-image: url("https://i.imgur.com/3TJilee.jpg");
@@ -220,7 +177,8 @@ button{
         height: 100%;
         width: 1fr;
     }
-    .play {
+    #play {
         height: 100%;
     }
 }
+

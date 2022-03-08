@@ -17,14 +17,14 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-    <div class="message"><p>Player 1's Turn!</p></div>
-    <div class="play">
-        <div class="board">
-            <div id="store1">
+    <header id="message"><p></p></header>
+    <div id="play">
+        <div id="board">
+            <div class="mancala">
                 <div id="pos6"><p></p></div>
             </div>
             <div id="pits">
-                <div id="p2Side">
+                <div class="side" id="p2Side">
                     <div id="pos7"><p></p></div>
                     <div id="pos8"><p></p></div>
                     <div id="pos9"><p></p></div>
@@ -32,7 +32,7 @@
                     <div id="pos11"><p></p></div>
                     <div id="pos12"><p></p></div>
                 </div>
-                <div id="p1Side">
+                <div class="side" id="p1Side">
                     <div id="pos5"><p></p></div>
                     <div id="pos4"><p></p></div>
                     <div id="pos3"><p></p></div>
@@ -41,11 +41,14 @@
                     <div id="pos0"><p></p></div>
                 </div>
             </div>
-            <div id="store2">
+            <div class="mancala">
                 <div id="pos13"><p></p></div>
             </div>
         </div>
     </div>
-    <footer><button>Reset</button></footer>
+    <footer>
+        <button>
+        </button>
+    </footer>
 </body>
 </html>

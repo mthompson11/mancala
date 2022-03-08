@@ -4,12 +4,15 @@ const players = {
 }
 
 let board, turn, winner;
+let activeGame = false;
 
-const $message = $('.message p');
+const $message = $('#message p');
+const $button = $('button');
+$button.html('New Game');
 
 $('#pits').click(handleClick);
 
-$('button').click(resetGame);
+$button.click(resetGame);
 
 function init(){
     board = [4,4,4,4,4,4,0,4,4,4,4,4,4,0];
@@ -22,19 +25,21 @@ function render(){
     board.forEach(function(pos,idx){
         $(`#pos${idx}`).html(pos);
     })
-    if(winner !== false){
+    if(activeGame === false){
+        $message.html('MANCALA');
+    }else if (winner !== false){
         if(winner !== 0){
             $message.html(`Game Over! <br/> ${players[winner]} Wins!`);
         }else{
             $message.html(`Game Over! <br/>Tie Game!`);
-        }
+        };
     }else{
-        $message.html(`${players[turn]}'s turn!`);
+        $message.html(`${players[turn]}'s Turn!`);
     }
 };
 
 function handleClick(evt){
-    if((($(evt.target).parent().attr('id') === 'p1Side' && turn === 1) || ($(evt.target).parent().attr('id') === 'p2Side' && turn === -1)) && winner === false){
+    if((($(evt.target).parent().attr('id') === 'p1Side' && turn === 1) || ($(evt.target).parent().attr('id') === 'p2Side' && turn === -1)) && winner === false && activeGame === true){
         const currentPos = Number($(evt.target).attr('id').split('pos')[1]);
         let pieces = Number($(evt.target).html());
         const laps = Math.floor(pieces / (board.length - 1))
@@ -151,6 +156,10 @@ function clearPits(){
 };
 
 function resetGame(){
+    if (activeGame === false){
+        $button.html('Reset');
+    };
+    activeGame = true;
     init();
     render();
 };
