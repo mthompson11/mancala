@@ -6,7 +6,7 @@ const players = {
 let board, turn, winner;
 let activeGame = false;
 
-const $message = $('#message p');
+const $message = $('#message');
 const $button = $('button');
 $button.html('New Game');
 
