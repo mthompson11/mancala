@@ -19,17 +19,25 @@ body {
     align-items: center;
 }
 
+#play {
+    display:flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    height: 140px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #message p{
     font-size: 50px;
     font-weight: bold;
     text-align: center;
-}
-
-#play {
-    flex-grow: 1;
-    display:flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #board{
@@ -89,13 +97,7 @@ body {
     font-weight: bold;
 }
 
-footer{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
+
 
 button {
     width: 150px;
@@ -112,39 +114,36 @@ button {
     body {
         height: 100vh;
         display: grid;
-        grid-template-rows: 200px 1fr;
-        background-image: url("https://i.imgur.com/na70TXP.jpg");
+        grid-template-rows: 20% 1fr 20%;
     }
 
     #message {
         height: 100%;
     }
 
+    footer{
+        height: auto;
+        align-items: center;
+    }
+
+    #message p{
+        font-size: 125px;
+        font-weight: bold;
+        text-align: center;
+    }
+
     #board{
-        height: 400px;
-        width: 900px;
+        height: 350px;
+        width: 80%;
         background-image: url("https://i.imgur.com/3TJilee.jpg");
         border-radius: 5%;
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
     }
 
-    #store1 {
+    .mancala {
         height: 100%;
         width: 15%
-    }
-
-    #store2 {
-        height: 100%;
-        width: 15%
-    }
-
-    #p1Side{
-        flex-direction: row;
-    }
-    
-    #p2Side{
-        flex-direction: row;
     }
 
     #pits {
@@ -152,6 +151,12 @@ button {
         width: 70%;
         flex-direction: column;
     }
+
+    .side {
+        display: flex;
+        flex-direction: row-reverse;
+    };
+
 
     #p2Side div{
         height: 100%;
@@ -176,9 +181,11 @@ button {
     #p2Side div{
         height: 100%;
         width: 1fr;
-    }
-    #play {
-        height: 100%;
-    }
+    } 
 }
 
+@media only screen and (min-width:992px){
+    #board {
+        width: 793px;
+    }
+}
