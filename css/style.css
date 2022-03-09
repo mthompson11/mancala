@@ -86,7 +86,16 @@ header {
     background-image: url("https://i.imgur.com/zMKZarM.jpg");
     background-clip: content-box;
     border-radius: 20%;
-    cursor: pointer;  
+    cursor: pointer;
+}
+
+.turn-indicator{
+    background-image: linear-gradient(
+    to right,
+    #d64c7f,#ee4758 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
 }
 
 footer{

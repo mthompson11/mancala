@@ -23,7 +23,7 @@ function init(){
 
 function render(){
     board.forEach(function(pos,idx){
-        $(`#pos${idx}`).html(pos);
+        $(`#pos${idx} p`).html(pos);
     })
     if(activeGame === false){
         $message.html('MANCALA');
@@ -34,14 +34,25 @@ function render(){
             $message.html(`Game Over! <br/>Tie Game!`);
         };
     }else{
+        if(turn === 1){
+            $('#p2Side div p').removeClass('turn-indicator');
+            $('#p1Side div p').addClass('turn-indicator');
+        }else if(turn === -1){
+            $('#p1Side div p').removeClass('turn-indicator');
+            $('#p2Side div p').addClass('turn-indicator');
+        }
         $message.html(`${players[turn]}'s Turn!`);
     }
 };
 
 function handleClick(evt){
-    if((($(evt.target).parent().attr('id') === 'p1Side' && turn === 1) || ($(evt.target).parent().attr('id') === 'p2Side' && turn === -1)) && winner === false && activeGame === true){
-        const currentPos = Number($(evt.target).attr('id').split('pos')[1]);
-        let pieces = Number($(evt.target).html());
+    const $target = $(evt.target).closest('div');
+    if((($target.parent().attr('id') === 'p1Side' && turn === 1) || ($target.parent().attr('id') === 'p2Side' && turn === -1)) && winner === false && activeGame === true){
+        const currentPos = Number($target.attr('id').split('pos')[1]);
+        let pieces = Number($target.children('p').html());
+        if(pieces === 0){
+            return
+        };
         const laps = Math.floor(pieces / (board.length - 1))
         const skip = (turn === 1) ? 13 : 6;
         let lastIdx;
@@ -161,7 +172,6 @@ function resetGame(){
     };
     activeGame = true;
     init();
-    render();
 };
 
 init();
