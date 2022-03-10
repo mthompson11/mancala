@@ -2,7 +2,8 @@
 
 A browser-based strategy game.
 
-![Image](https://i.imgur.com/zngXamm.png)
+<a><img style="width:50%; height: auto" src="https://i.imgur.com/zngXamm.png" title="source: imgur.com" /></a><a><img style="width:50%; height: auto" src="https://i.imgur.com/qVNdtWs.png" title="source: imgur.com" /></a>
+
 
 ## Background
 
