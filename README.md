@@ -1,9 +1,12 @@
 # Mancala
 
 A browser-based strategy game.
-
-<a><img style="width:50%; height: auto" src="https://i.imgur.com/zngXamm.png" title="source: imgur.com" /></a><a><img style="width:50%; height: auto" src="https://i.imgur.com/qVNdtWs.png" title="source: imgur.com" /></a>
-
+<div align="center">
+<img height="300" src="https://i.imgur.com/zngXamm.png" title="source: imgur.com" />
+</div>
+<div align="center">
+<img height="400" src="https://i.imgur.com/qVNdtWs.png" title="source: imgur.com" />
+</div>
 
 ## Background
 
