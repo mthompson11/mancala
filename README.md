@@ -4,9 +4,16 @@ A browser-based strategy game.
 <div align="center">
 <img height="300" src="https://i.imgur.com/zngXamm.png" title="source: imgur.com" />
 </div>
+<p align="center">
+Full Screen Layout
+</p>
 <div align="center">
 <img height="400" src="https://i.imgur.com/qVNdtWs.png" title="source: imgur.com" />
 </div>
+
+<p align="center">
+Mobile Layout
+</p>
 
 ## Background
 
